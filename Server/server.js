@@ -12,14 +12,9 @@ const MongoClient = require("mongodb").MongoClient;
 
 
 //routes
-
-
-
+const vehicleRoute = require("./app/routes/vehicle.route");
 
 const dbConfig = require("./config/db.config");
-
-
-
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -28,7 +23,11 @@ app.use(morgan("dev"));
 
 mongoose.set("useCreateIndex", true);
 
+
 //set routes
+app.use("/api/vehicle", vehicleRoute);
+
+
 
 app.use((req, res, next) => {
     const error = new Error("Not found");

@@ -13,6 +13,7 @@ const MongoClient = require("mongodb").MongoClient;
 
 //routes
 const vehicleRoute = require("./app/routes/Vehicle.route");
+const userRoute = require("./app/routes/User.route");
 
 const dbConfig = require("./config/db.config");
 
@@ -26,7 +27,7 @@ mongoose.set("useCreateIndex", true);
 
 //set routes
 app.use("/api/vehicle", vehicleRoute);
-
+app.use("/api/user", userRoute);
 
 
 app.use((req, res, next) => {
